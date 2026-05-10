@@ -48,10 +48,10 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
 <div class="container">
     <div class="tab-menu">
-        <a href="home.php" class="<?= ($current_page == 'home.php') ? 'active' : '' ?>">Home</a>
-        <a href="settings.php" class="<?= ($current_page == 'settings.php') ? 'active' : '' ?>">Settings</a>
+        <a href="index.php" class="<?= ($current_page == 'index.php') ? 'active' : '' ?>">Home</a>
+        <a href="setting.php" class="<?= ($current_page == 'setting.php') ? 'active' : '' ?>">Settings</a>
         <a href="profile.php" class="<?= ($current_page == 'profile.php') ? 'active' : '' ?>">Profile</a>
-	<a href="logout.php">Logout</a>
+	<a href="signout.php">Signout</a>
 	<a href="about.php" class="<?= ($current_page == 'about.php') ? 'active' : '' ?>">About</a>
     </div>
     

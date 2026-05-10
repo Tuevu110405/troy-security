@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         // 2. Chuẩn bị câu lệnh SQL (chống SQL Injection)
-        $sql = "INSERT INTO users (username, fullname, password) VALUES (:username, :fullname, :password)";
+        $sql = "INSERT INTO account (username, fullname, password) VALUES (:username, :fullname, :password)";
         $stmt = $conn->prepare($sql);
         
         // 3. Thực thi

@@ -9,20 +9,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pass = $_POST['password'];
 
     try {
-        // Tìm user trong database
-        $sql = "SELECT * FROM users WHERE username = :username";
+        // Tìm user trong database bảng account
+        $sql = "SELECT * FROM account WHERE username = :username";
         $stmt = $conn->prepare($sql);
         $stmt->execute([':username' => $user]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // Kiểm tra mật khẩu (dùng password_verify vì bạn đã mã hóa hash ở signup)
+        // Kiểm tra mật khẩu
         if ($row && password_verify($pass, $row['password'])) {
             // Đăng nhập thành công -> Lưu session
             $_SESSION['username'] = $row['username'];
             $_SESSION['fullname'] = $row['fullname'];
             
-            // Chuyển hướng đến trang home
-            header("Location: home.php");
+            // SỬA Ở ĐÂY: Chuyển hướng đến trang index.php thay vì home.php
+            header("Location: index.php");
             exit();
         } else {
             $error = "Tài khoản hoặc mật khẩu không đúng!";
@@ -35,7 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="vi">
-<!-- Phần HTML bên dưới giữ nguyên của bạn, chỉ thêm hiển thị lỗi -->
 <head>
     <meta charset="UTF-8">
     <title>Đăng nhập hệ thống</title>
@@ -70,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit">Đăng nhập</button>
         </form>
         <div class="footer">
-            Chưa có tài khoản? <a href="signup.php">Đăng ký ngay</a>
+            Chưa có tài khoản? <a href="../admin/newuser.php">Tạo tài khoản ngay</a>
         </div>
     </div>
 </body>

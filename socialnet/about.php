@@ -17,7 +17,7 @@ require_once 'menu.php';
         <ul style="list-style-type: square; padding-left: 20px;">
             <li><strong>Tác giả:</strong> Vũ Tiến Tuệ</li>
             <li><strong>Học tập:</strong> Sinh viên Khoa Khoa học Máy tính - Đại học Bách khoa Hà Nội (HUST).</li>
-            <li><strong>Công tác:</strong> Kỹ sư Phần mềm & Phân tích dữ liệu tại Datacom.</li>
+            <li><strong>MSSV:</strong> 1694603.</li>
         </ul>
 
         <p style="color: #606770; font-size: 13px; margin-top: 25px; text-align: center;">
