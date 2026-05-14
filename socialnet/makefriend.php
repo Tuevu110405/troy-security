@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['target_username'])) {
 
     // Bảo mật cơ bản: Không thể tự kết bạn với chính mình
     if ($my_username === $target_username) {
-        header("Location: home.php");
+        header("Location: index.php");
         exit();
     }
 
@@ -62,6 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['target_username'])) {
 }
 
 // Xử lý xong thì tự động quay về trang Home
-header("Location: home.php");
+header("Location: index.php");
 exit();
 ?>
