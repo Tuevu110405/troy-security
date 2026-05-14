@@ -76,7 +76,8 @@
 </head>
 <body>
 <?php
-require_once 'db_connect.php';
+session_start();
+require_once '../socialnet/db_connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $_POST['username'];
@@ -98,7 +99,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ':password' => $hashed_password
         ]);
 
-        echo "Đăng ký thành công!";
+	echo "Đăng ký thành công!";
+	$_SESSION['username'] = $user;
+        $_SESSION['fullname'] = $full;
+
+        // Chuyển hướng về trang index.php
+        // Dùng dấu ../ để lùi ra khỏi thư mục admin, sau đó vào thư mục socialnet
+        header("Location: ../socialnet/index.php");
+        exit();
     } catch(PDOException $e) {
         if ($e->getCode() == 23000) {
             echo "Lỗi: Username đã tồn tại.";
@@ -110,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <div class="container">
     <h2>Create Account</h2>
-    <form action="signup.php" method="POST">
+    <form action="newuser.php" method="POST">
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" maxlength="20" required>
